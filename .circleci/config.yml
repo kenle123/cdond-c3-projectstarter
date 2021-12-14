@@ -102,10 +102,12 @@ jobs:
       - checkout
       - restore_cache:
           keys: [frontend-build]
-      - command: |
-          cd frontend
-          npm install 
-          npm audit --audit-level=critical
+      - run: 
+          name: Scan frontend
+          command: |
+            cd frontend
+            npm install 
+            npm audit --audit-level=critical
 
   scan-backend:
     docker:
@@ -114,10 +116,12 @@ jobs:
       - checkout
       - restore_cache:
           keys: [backend-build]
-      - command: |
-          cd backend
-          npm install 
-          npm audit --audit-level=critical
+      - run: 
+          name: Scan backend
+          command: |
+            cd backend
+            npm install 
+            npm audit --audit-level=critical
 
 #   deploy-infrastructure:
 #     docker:
