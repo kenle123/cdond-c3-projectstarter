@@ -264,7 +264,7 @@ jobs:
           working_directory: ./.circleci/ansible
           command: |
             cat inventory
-            ansible-playbook -i inventory deploy-backend.yaml -vv
+            ansible-playbook -i inventory deploy-backend.yml -vv
       - destroy-environment 
 
 #   smoke-test:
